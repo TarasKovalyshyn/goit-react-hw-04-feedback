@@ -1,4 +1,3 @@
-import Statistics from '../Statistics/Statistics';
 import FeedbackOptions from '../FeedbackOptions/FeedbackOptions';
 import React, { Component } from 'react';
 
