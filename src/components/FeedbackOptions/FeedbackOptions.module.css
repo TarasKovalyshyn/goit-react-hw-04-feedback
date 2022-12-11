@@ -1,0 +1,14 @@
+.div {
+  display: flex;
+  gap: 10px;
+}
+.buttons {
+  padding: 10px;
+  width: 100px;
+  cursor: pointer;
+  border-radius: 5px;
+  border: 0;
+}
+.buttons:hover {
+  background-color: rgba(63, 63, 182, 0.733);
+}

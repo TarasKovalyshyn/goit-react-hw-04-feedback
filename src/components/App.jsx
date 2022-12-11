@@ -9,6 +9,9 @@ class App extends Component {
     neutral: 0,
     bad: 0,
   };
+
+  // onLeaveFeedback = () => {};
+
   handleIncrementGood = () => {
     this.setState(prevState => {
       return { good: prevState.good + 1 };
@@ -20,28 +23,38 @@ class App extends Component {
       return { neutral: prevState.neutral + 1 };
     });
   };
+
   handleIncrementBad = () => {
     this.setState(prevState => {
       return { bad: prevState.bad + 1 };
     });
   };
+
   countTotalFeedback = () => {
     return this.state.good + this.state.neutral + this.state.bad;
   };
+
   countPositiveFeedbackPercentage = () => {
     return (this.state.good / this.countTotalFeedback()) * 100;
   };
+
   render() {
     const total = this.countTotalFeedback();
     const positivePercent = this.countPositiveFeedbackPercentage().toFixed();
+
     return (
-      <>
+      <div
+        style={{
+          marginLeft: '15px',
+        }}
+      >
         <Section title="Please leave feedback">
           <FeedbackOptions
             handleIncrementGood={this.handleIncrementGood}
             handleIncrementNeutral={this.handleIncrementNeutral}
             handleIncrementBad={this.handleIncrementBad}
           />
+          {/* <FeedbackOptions options={this.state} onLeaveFeedback={}></FeedbackOptions> */}
           <Statistscs
             title={'Statistics'}
             good={this.state.good}
@@ -51,7 +64,7 @@ class App extends Component {
             positivePercentage={positivePercent}
           />
         </Section>
-      </>
+      </div>
     );
   }
 }
