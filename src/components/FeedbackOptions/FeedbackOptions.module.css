@@ -8,6 +8,7 @@
   cursor: pointer;
   border-radius: 5px;
   border: 0;
+  text-transform: capitalize;
 }
 .buttons:hover {
   background-color: rgba(63, 63, 182, 0.733);

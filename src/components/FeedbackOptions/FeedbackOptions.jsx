@@ -1,32 +1,17 @@
 import css from './FeedbackOptions.module.css';
-const FeedbackOptions = ({
-  handleIncrementGood,
-  handleIncrementNeutral,
-  handleIncrementBad,
-}) => {
+const FeedbackOptions = ({ options, onLeaveFeedback }) => {
   return (
     <div className={css.div}>
-      <button
-        type="button"
-        onClick={handleIncrementGood}
-        className={css.buttons}
-      >
-        Good
-      </button>
-      <button
-        type="button"
-        onClick={handleIncrementNeutral}
-        className={css.buttons}
-      >
-        Neutral
-      </button>
-      <button
-        type="button"
-        onClick={handleIncrementBad}
-        className={css.buttons}
-      >
-        Bad
-      </button>
+      {options.map((options, index) => (
+        <button
+          key={index}
+          options={options}
+          onClick={() => onLeaveFeedback(options)}
+          className={css.buttons}
+        >
+          {options}
+        </button>
+      ))}
     </div>
   );
 };

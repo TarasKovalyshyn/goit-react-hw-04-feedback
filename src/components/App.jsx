@@ -10,25 +10,31 @@ class App extends Component {
     bad: 0,
   };
 
-  // onLeaveFeedback = () => {};
-
-  handleIncrementGood = () => {
+  handleFeedback = option => {
     this.setState(prevState => {
-      return { good: prevState.good + 1 };
+      return {
+        [option]: prevState[option] + 1,
+      };
     });
   };
 
-  handleIncrementNeutral = () => {
-    this.setState(prevState => {
-      return { neutral: prevState.neutral + 1 };
-    });
-  };
+  // handleIncrementGood = () => {
+  //   this.setState(prevState => {
+  //     return { good: prevState.good + 1 };
+  //   });
+  // };
 
-  handleIncrementBad = () => {
-    this.setState(prevState => {
-      return { bad: prevState.bad + 1 };
-    });
-  };
+  // handleIncrementNeutral = () => {
+  //   this.setState(prevState => {
+  //     return { neutral: prevState.neutral + 1 };
+  //   });
+  // };
+
+  // handleIncrementBad = () => {
+  //   this.setState(prevState => {
+  //     return { bad: prevState.bad + 1 };
+  //   });
+  // };
 
   countTotalFeedback = () => {
     return this.state.good + this.state.neutral + this.state.bad;
@@ -39,6 +45,7 @@ class App extends Component {
   };
 
   render() {
+    const stateItemNames = Object.keys(this.state);
     const total = this.countTotalFeedback();
     const positivePercent = this.countPositiveFeedbackPercentage().toFixed();
 
@@ -49,12 +56,12 @@ class App extends Component {
         }}
       >
         <Section title="Please leave feedback">
-          <FeedbackOptions
+          {/* <FeedbackOptions
             handleIncrementGood={this.handleIncrementGood}
             handleIncrementNeutral={this.handleIncrementNeutral}
             handleIncrementBad={this.handleIncrementBad}
-          />
-          {/* <FeedbackOptions options={this.state} onLeaveFeedback={}></FeedbackOptions> */}
+          /> */}
+          <FeedbackOptions options={stateItemNames} onLeaveFeedback={this.handleFeedback}></FeedbackOptions>
           <Statistscs
             title={'Statistics'}
             good={this.state.good}
