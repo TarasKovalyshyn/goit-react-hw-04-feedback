@@ -45,7 +45,7 @@ export default function App() {
         <FeedbackOptions
           options={stateItemNames}
           onLeaveFeedback={handleFeedback}
-        ></FeedbackOptions>
+        />
         <Statistscs
           title={'Statistics'}
           good={good}
